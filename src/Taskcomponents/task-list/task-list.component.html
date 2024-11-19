@@ -1,0 +1,60 @@
+<div class="task-manager">
+  <!-- Main container for the task manager UI -->
+  <mat-card>
+    <!-- Card used to display the main section of the task manager -->
+    <div class="logo">
+      <!-- Container for logo and title -->
+      <img
+        src="https://ov12-engine.flamingtext.com/netfu/tmp28017/coollogo_com-63761008.png"
+        alt="AJ"
+      />
+
+      <!-- Add your logo image here -->
+      <mat-card-title>𝑻𝒂𝒔𝒌 𝑴𝒂𝒏𝒂𝒈𝒆𝒓</mat-card-title>
+      <!-- Title of the task manager -->
+    </div>
+
+    <!-- Form field for adding a new task -->
+    <mat-form-field appearance="fill">
+      <mat-label>𝑻𝒂𝒔𝒌</mat-label>
+      <!-- Label for the input field -->
+      <input matInput [formControl]="taskTitle" placeholder="Add a new task" />
+      <!-- Input field where the task title is entered, bound to formControl named 'taskTitle' -->
+    </mat-form-field>
+
+    <!-- Button to add a new task -->
+    <button mat-raised-button color="primary" (click)="addTask()">
+      𝖠𝖽𝖽 𝖳𝖺𝗌𝗄
+    </button>
+    <!-- The button triggers the 'addTask' method when clicked -->
+  </mat-card>
+
+  <!-- Section for task filters (All, Completed, Incomplete) -->
+  <div class="task-filter">
+    <!-- Filter buttons to show different task states -->
+    <button mat-button (click)="setFilter('all')">All</button>
+    <!-- Button to filter all tasks -->
+    <button mat-button (click)="setFilter('completed')">Completed</button>
+    <!-- Button to filter completed tasks -->
+    <button mat-button (click)="setFilter('incomplete')">Incomplete</button>
+    <!-- Button to filter incomplete tasks -->
+  </div>
+
+  <!-- List of tasks with checkboxes for completion and delete option -->
+  <mat-list>
+    <mat-list-item *ngFor="let task of tasks">
+      <!-- Loop through the 'tasks' array and display each task in the list -->
+      <mat-checkbox
+        [(ngModel)]="task.completed"
+        (change)="toggleCompletion(task.id)"
+      >
+        {{ task.title }}
+        <!-- Checkbox that is bound to 'task.completed'. When clicked, it calls 'toggleCompletion' method to update task completion status -->
+      </mat-checkbox>
+      <button mat-icon-button (click)="deleteTask(task.id)">
+        <mat-icon>delete</mat-icon>
+        <!-- Delete button that triggers 'deleteTask' method to remove the task -->
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

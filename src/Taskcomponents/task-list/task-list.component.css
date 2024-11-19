@@ -1,0 +1,153 @@
+/* Main container for the task manager */
+/* This defines the central container where the entire task manager is displayed.
+   It ensures a maximum width for better readability, centers the content, and adds padding and styling. */
+.task-manager {
+  max-width: 600px; /* Sets the width of the container for consistent layout */
+  margin: 50px auto; /* Centers the container vertically and horizontally */
+  padding: 20px; /* Adds space inside the container for better appearance */
+  background-color: rgba(
+    255,
+    99,
+    71,
+    0.5
+  ); /* Light background for better visibility */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation effect */
+}
+
+/* Card style for the header and task input section */
+/* This is used for the header section, which includes the logo, title, and input for adding tasks. */
+mat-card {
+  background-color: rgb(0, 99, 71); /* White background for the card */
+  padding: 20px; /* Space inside the card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 20px; /* Adds space below the card */
+  display: flex; /* Flexbox layout for arranging content horizontally */
+  align-items: center; /* Aligns items vertically centered */
+  justify-content: space-between; /* Spreads content evenly */
+}
+
+/* Styling the title with logo */
+/* The logo and title section styling. */
+mat-card-title {
+  font-size: 1.5rem; /* Large font for the title */
+  font-weight: bold; /* Bold text to emphasize the title */
+  color: rgb(239, 218, 156); /* Primary theme color for consistency */
+}
+
+.task-manager .logo {
+  display: flex; /* Aligns logo image and text horizontally */
+  align-items: center; /* Centers them vertically */
+  font-size: 1.2rem; /* Slightly smaller font for text beside the logo */
+  font-weight: bold; /* Emphasizes the logo text */
+  color: rgb(239, 218, 156); /* Matches the theme */
+}
+
+.task-manager .logo img {
+  width: 40px; /* Sets a consistent size for the logo */
+  height: 40px; /* Ensures the logo is square */
+  margin-right: 10px; /* Adds space between logo and text */
+}
+
+/* Task input field and button styling */
+/* Styles the input field and button for adding new tasks. */
+.mat-form-field {
+  width: 100%; /* Ensures the input field takes up the full width */
+  margin-bottom: 10px; /* Adds space below the field */
+}
+
+button.mat-raised-button {
+  background-color: #3f51b5; /* Primary theme color for the button */
+  color: rgb(38, 218, 238); /* White text for better contrast */
+  font-weight: bold; /* Bold text for emphasis */
+  padding: 12px; /* Space inside the button */
+  width: 100%; /* Makes the button stretch to full width */
+}
+
+button.mat-raised-button:hover {
+  background-color: #9018cb; /* Darker shade for hover effect */
+}
+
+/* Task filter buttons styling */
+/* Styles the filter buttons for filtering tasks by their status. */
+.task-filter {
+  display: flex; /* Aligns buttons horizontally */
+  justify-content: space-between; /* Spreads buttons evenly */
+  margin: 10px 0; /* Adds space around the filter section */
+}
+
+button.mat-button {
+  font-size: 1rem; /* Medium-sized text */
+  padding: 10px 20px; /* Adds padding for better clickability */
+  background-color: rgb(255, 59, 46); /* Green color to indicate action */
+  color: rgb(246, 21, 74); /* White text for contrast */
+  border-radius: 4px; /* Subtle rounding for a modern look */
+}
+
+button.mat-button:hover {
+  background-color: #388e3c; /* Darker green for hover effect */
+}
+
+/* Task list styling */
+/* Styles the task list and individual task items. */
+mat-list {
+  margin-top: 20px; /* Adds space above the task list */
+}
+
+mat-list-item {
+  display: flex; /* Aligns checkbox, text, and delete button horizontally */
+  align-items: center; /* Centers items vertically */
+  justify-content: space-between; /* Spreads items evenly */
+  padding: 10px; /* Space inside each task item */
+  margin-bottom: 10px; /* Space between task items */
+  background-color: #bcc810; /* Light background for the task item */
+  border-radius: 8px; /* Rounded corners for a clean look */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+mat-list-item:hover {
+  background-color: #a5dea9; /* Light green on hover */
+}
+
+/* Checkbox alignment */
+/* Ensures proper spacing and alignment of checkboxes. */
+mat-checkbox {
+  margin-right: 10px; /* Space between the checkbox and the task title */
+}
+
+/* Delete button styling */
+/* Styles the delete button inside each task item. */
+button.mat-icon-button {
+  color: #f44336; /* Red color for the delete action */
+  padding: 8px; /* Adds space around the icon */
+  margin-left: 10px; /* Space between text and icon */
+  position: absolute; /* Allows for precise positioning */
+  right: 10px; /* Aligns button to the right edge */
+}
+
+button.mat-icon-button:hover {
+  background-color: #ffebee; /* Light red on hover */
+  border-radius: 50%; /* Circular hover effect */
+}
+
+/* Media queries for responsiveness */
+/* Ensures the application looks good on smaller screens. */
+@media (max-width: 600px) {
+  .task-manager {
+    margin: 20px; /* Reduces margin on smaller screens */
+  }
+
+  .task-filter {
+    flex-direction: column; /* Stacks buttons vertically */
+    align-items: center; /* Centers buttons */
+  }
+
+  button.mat-raised-button {
+    width: auto; /* Reduces button width on smaller screens */
+  }
+
+  button.mat-button {
+    margin-top: 10px; /* Adds space between stacked buttons */
+  }
+}
